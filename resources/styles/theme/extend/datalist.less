@@ -1,0 +1,151 @@
+/// <reference path="../core/references.less" />
+
+// Datalist Component
+.datalist {
+    width: 100%;
+    display: table;
+    margin-bottom: @spacing-base;
+    border-collapse: collapse;
+
+    @media (max-width: @screen-xs-max) {
+        margin-bottom: @spacing-small;
+    }
+
+    // Structure
+    & &-row {
+        display: table-row;
+        color: @text-base;
+        border-bottom: @bg-page 1px solid;
+
+        &:last-child { border-bottom: none; }
+        
+        &:active, &:focus, &:hover { text-decoration: none; }
+    }
+
+    & &-cell {
+        padding: @spacing-small;
+        display: table-cell;
+        font-size: @font-size-base;
+        font-weight: @font-weight-light;
+        
+        &:first-child { display: table-cell !important; }
+        
+        &.min {
+            width: 1%;
+            white-space: nowrap;
+        }
+        &.max {
+            width: 100%;
+            white-space: normal;
+        }
+    }
+
+    // Section Header
+    & &-header {
+        display: table-header-group;
+        border-bottom: @bg-page @divider-height solid;
+        background: @bg-section;
+
+        &-label {
+            line-height: normal;
+            margin: 0;
+            position: relative;
+            text-transform: uppercase;
+            font-size: @font-size-base;
+            font-weight: @font-weight-bold;
+            
+            // Header separation
+            &::after {
+                content: ' ';
+                width: 1px;
+                height: 30px;
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: -25px;
+                transform: translate(0, -50%);
+                background: @body-bg;
+            }
+        }
+    }
+    
+    & &-cell:first-child &-header-label::after { display: none; }
+
+    & &-header &-cell { 
+        padding: @spacing-base @spacing-small;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        vertical-align: bottom;
+    }
+    
+    // Section Body
+    & &-body {
+        display: table-row-group;
+        background: @bg-section;
+    
+        &-label {
+            line-height: @line-height-base;
+            margin: 0;
+            font-size: @font-size-base;
+            font-weight: @font-weight-bold;
+        }
+    }
+    
+    & &-body &-row {
+        &:active, 
+        &:focus, 
+        &:hover { background: @bg-table-cell-hover; }
+        
+        &.active { 
+            & { background: @state-active-bg; }
+            &:hover { background: darken(@state-active-bg, 5%); }
+        }
+        &.success { 
+            & { background: @state-success-bg; }
+            &:hover { background: darken(@state-success-bg, 5%); }
+        }
+        &.info { 
+            & { background: @state-info-bg; }
+            &:hover { background: darken(@state-info-bg, 5%); }
+        }
+        &.warning { 
+            & { background: @state-warning-bg; }
+            &:hover { background: darken(@state-warning-bg, 5%); }
+        }
+        &.danger { 
+            & { background: @state-danger-bg; }
+            &:hover { background: darken(@state-danger-bg, 5%); }
+        }
+    }
+
+    & &-body &-cell {
+        vertical-align: middle;
+        background: @bg-table-cell;
+
+        &:nth-child(2n) { background: @bg-table-cell-even; }
+    }
+    
+    // Misc
+    & &-sorted {
+        color: @text-link;
+        cursor: pointer;
+        
+        i { margin-left: 5px; }
+    }
+    
+    // Section Nav
+    &-nav {
+        margin: @spacing-base 0;
+        text-align: center;
+        
+        .pagination { margin: 0; }
+    }
+    
+    // Bordered
+    &-bordered,
+    &-bordered &-cell { border: @bg-page 1px solid; }
+    
+    // With a Panel
+    .panel & { margin: 0; }
+}

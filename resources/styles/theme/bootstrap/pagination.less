@@ -1,0 +1,92 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/pagination.less';
+
+// Pagination
+.pagination {
+    margin: @spacing-container 0;
+    font-size: 0;
+    
+    > li {
+        display: inline-block;
+        font-size: @font-size-base;
+        border-left: none;
+        
+        > a,
+        > span {
+            min-width: @component-height-base;
+            line-height: @component-height-base;
+            padding: 0 5px;
+            margin: 0;
+            text-align: center;
+            border: none;
+            border-radius: 0 !important;
+            color: @text-base;
+            
+            &,
+            &:active, 
+            &:focus, 
+            &:hover { 
+                background: none;
+                cursor: pointer; 
+            }
+        }
+        
+        &:first-child { border-left: none; }
+        
+        
+        
+        
+        
+        // States
+        &.active {
+            > a,
+            > span {
+                border-radius: 2px !important;
+                color: @text-inverse;
+                background: @brand-primary;
+                
+                &:active, 
+                &:focus, 
+                &:hover { 
+                    background: @brand-primary-hover;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        &.disabled {
+            > a,
+            > span {
+                &,
+                &:active, 
+                &:focus, 
+                &:hover { background: none; }
+            }
+        }
+    }
+        
+        
+        
+        
+        
+    // Sizing
+    &-sm > li {
+        font-size: @font-size-small;
+
+        > a,
+        > span {
+            min-width: @component-height-sm;
+            line-height: @component-height-sm;
+        }
+    }
+
+    &-lg > li {
+        font-size: @font-size-large;
+
+        > a,
+        > span {
+            min-width: @component-height-lg;
+            line-height: @component-height-lg;
+        }
+    }
+}

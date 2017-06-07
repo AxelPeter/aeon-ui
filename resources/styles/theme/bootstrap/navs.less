@@ -1,0 +1,33 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/navs.less';
+
+.nav {
+    .open > a {
+        &,
+        &:hover,
+        &:focus {
+            color: @text-active;
+            border-color: transparent;
+            background-color: transparent;
+        }
+    }
+
+    @media (max-width: @screen-mobile-max) {
+        &-open::after {
+            content: ' ';
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            background: @color-black;
+            z-index: 1000;
+        }
+
+        &-open & {
+            box-shadow: @shadow-z-depth-2;
+        }
+    }
+}

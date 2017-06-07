@@ -1,0 +1,38 @@
+{
+  "name": "aeon-ui",
+  "version": "1.0.0",
+  "description": "Aeon UI",
+  "main": "dist/css/aeon-ui.css",
+  "authors": [
+    "Axel PETER <https://github.com/AxelPeter>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/AxelPeter",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bower": "1.7.0",
+    "grunt": "1.0.0",
+    "grunt-cli": "1.1.0",
+    "grunt-concurrent": "2.3.1",
+    "grunt-contrib-clean": "1.1.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-less": "1.4.1",
+    "grunt-contrib-uglify": "2.1.0",
+    "grunt-contrib-watch": "1.0.0",
+    "jit-grunt": "0.10.0",
+    "jshint-stylish": "2.2.1",
+    "time-grunt": "1.4.0"
+  },
+  "scripts": {
+    "postinstall": "bower install && grunt"
+  }
+}

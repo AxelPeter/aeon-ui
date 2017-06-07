@@ -1,0 +1,395 @@
+<div class="page container">
+    <h1 class="page-header" id="top" ui-anchor is-header>Composants</h1>
+    <div class="page-section">
+        
+        <!-- Anchor -->
+        <h2 id="anchor" ui-anchor is-group>Anchor</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <p><a href="#/components#summary">Summary</a> requis pour le bon fonctionnement du composant.</p>
+                <h4 id="anchor-example" title="Exemple" ui-anchor anchor-value="vm.anchorValue" anchor-error="vm.anchorError" is-hidden="vm.anchorHidden">Exemple (Titre alternatif)</h4>
+                <div class="example">
+                    <p><strong>Voir la Sidebar</strong></p>
+                    <p><input class="form-control" type="text" placeholder="Valeur de l'ancre" ng-model="vm.anchorValue"></p>
+                    <div class="checkbox-list">
+                        <div class="checkbox checkbox-custom">
+                            <label>
+                                <input type="checkbox" ng-model="vm.anchorError" />
+                                <span>Modifier l'état de l'ancre</span>
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-custom">
+                            <label>
+                                <input type="checkbox" ng-model="vm.anchorHidden" />
+                                <span>Cacher l'ancre dans le sommaire</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;h1 id="anchor-header" ui-anchor is-header&gt;...&lt;/h1&gt;
+&lt;h2 id="anchor-group" ui-anchor is-group&gt;...&lt;/h2&gt;
+&lt;h4 id="anchor" title="Lorem ipsum dolor sit amet" ui-anchor anchor-value="vm.anchorValue" anchor-error="vm.anchorError"&gt;...&lt;/h4&gt;</code></pre>
+                </figure>
+                <h4 id="anchor-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>title</code> (type: <code>string</code>)<br />
+                        Titre alternatif qui sera affiché dans le composant <a href="#/components#summary">Summary</a>.
+                    </li>
+                    <li>
+                        <code>anchor-value (type: <code>string</code>)</code><br />
+                        Valeur qui sera affichée sous l'ancre.
+                    </li>
+                    <li>
+                        <code>anchor-error (type: <code>boolean</code>)</code><br />
+                        Définit si la valeur est dans un état d'erreur.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Anchor -->
+
+        <!-- Checklist -->
+        <h2 id="checklist" ui-anchor is-group>Checklist</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <h4 id="checklist-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <ui-checklist placeholder="Rechercher un nom ou une valeur" empty-label="Aucun résultat" 
+                        selection-label="Sélectionner les éléments contenant:" select-all-label="Inclure" unselect-all-label="Exclure" 
+                        items-length-label="Nombre d'élements:" ng-model="vm.checklistItems" ng-change="vm.checklistChange(value)">
+                    </ui-checklist>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-checklist 
+    placeholder="Rechercher un nom ou une valeur" 
+    empty-label="Aucun r&eacute;sultat" 
+    selection-label="S&eacute;lectionner les &eacute;l&eacute;ments contenant:" 
+    select-all-label="Inclure" 
+    unselect-all-label="Exclure" 
+    items-length-label="Nombre d'&eacute;lements:" 
+    ng-model="vm.checklistItems" 
+    ng-change="vm.fn.checklistChanged(value)"&gt;
+&lt;/ui-checklist&gt;</code></pre>
+                </figure>
+                <h4 id="checklist-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>ng-model</code> (type: <code>array</code>)<br />
+                        Tableau des éléments à afficher dans la liste.
+                    </li>
+                    <li>
+                        <code>min-length</code> (type: <code>number</code>, default: <code>3</code>)<br />
+                        Nombre de caractères nécessaires pour que la recherche soit prise en compte.
+                    </li>
+                    <li>
+                        <code>max-tags</code> (type: <code>number</code>, default: <code>5</code>)<br />
+                        Nombre maximum de tags à afficher avant que l'overflow ne s'active.
+                    </li>
+                    <li>
+                        <code>placeholder</code> (type: <code>string</code>)<br />
+                        Label s'affichant dans le champs de recherche quand il est vide.
+                    </li>
+                    <li>
+                        <code>empty-label</code> (type: <code>string</code>, default: <code>'No result</code>)<br />
+                        Label s'affichant lorsque la liste des éléments est vide.
+                    </li>
+                    <li>
+                        <code>selection-label</code> (type: <code>string</code>, default: <code>'Select elements containing:</code>)<br />
+                        Label précédant les boutons de sélection.
+                    </li>
+                    <li>
+                        <code>items-length-label</code> (type: <code>string</code>, default: <code>'Number of items:</code>)<br />
+                        Label précédant le nombre d'éléments dans la liste.
+                    </li>
+                    <li>
+                        <code>select-all-label</code> (type: <code>string</code>, default: <code>'Include</code>)<br />
+                        Label du bouton de sélection.
+                    </li>
+                    <li>
+                        <code>unselect-all-label</code> (type: <code>string</code>, default: <code>'Exlude</code>)<br />
+                        Label du bouton de déselection.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Checklist -->
+
+        <!-- Progression -->
+        <h2 id="progression" ui-anchor is-group>Progression</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <h4 id="progression-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <ui-progression ng-model="vm.progressionDemo" 
+                        variant-class="progress-bar-info progress-bar-striped active" 
+                        value-min="0" value-max="40">
+                    </ui-progression>
+                </div>
+                <p><button type="button" class="btn btn-sm btn-default" ng-click="vm.progressionChange()">Modifier la valeur</button></p>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-progression 
+    ng-model="vm.progressionDemo" 
+    variant-class="progress-bar-info progress-bar-striped active" 
+    value-min="0" 
+    value-max="40"&gt;
+&lt;/ui-progression&gt;</code></pre>
+                </figure>
+                <h4 id="progression-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>ng-model</code> (type: <code>number</code>)<br />
+                        Valeur actuelle de la progression.
+                    </li>
+                    <li>
+                        <code>value-min</code> (type: <code>number</code>)<br />
+                        Valeur minimum de la progression.
+                    </li>
+                    <li>
+                        <code>value-max</code> (type: <code>number</code>)<br />
+                        Valeur maximum de la progression.
+                    </li>
+                    <li>
+                        <code>variant-class</code> (type: <code>string</code>)<br />
+                        Classe(s) CSS optionnelle(s) à ajouter sur la <a href="http://getbootstrap.com/components/#progress" target="_blank">progress-bar</a>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Progression -->
+
+        <!-- Summary -->
+        <h2 id="summary" ui-anchor="Summary" is-group>Summary</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <p><a href="#/components#anchor">Anchor</a> requis pour le bon fonctionnement du composant.</p>
+                <h4 id="summary-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <p><strong>Voir la Sidebar</strong></p>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-summary 
+    scroll-offset="70"&gt;
+   ...
+&lt;/ui-summary&gt;</code></pre>
+                </figure>
+                <h4 id="summary-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>scroll-offset</code> (type: <code>number</code>)<br />
+                        Valeur du décalage pour le scroll vers l'ancre cible. <br />Nécessaire dans le cas d'une <a href="http://getbootstrap.com/components/#navbar">navbar</a>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Summary -->
+
+        <!-- Switch -->
+        <h2 id="switch" ui-anchor is-group>Switch</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <h4 id="switch-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <ui-switch id="demoSwitch" name="demoSwitch" label-on="Oui" label-off="Non" 
+                        ng-model="vm.switchDemo" ng-change="vm.switchChange(value)">
+                    </ui-switch>
+                </div>
+                <p><button type="button" class="btn btn-sm btn-default" ng-click="vm.switchDemo = !vm.switchDemo">Modifier la valeur</button></p>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-switch 
+    name="demoSwitch" 
+    label-on="Oui" 
+    label-off="Non" 
+    ng-model="vm.switchDemo" 
+    ng-change="vm.switchChange(value)"&gt;
+&lt;/ui-switch&gt;</code></pre>
+                </figure>
+                <h4 id="switch-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>ng-model</code> (type: <code>boolean</code>)<br />
+                        Valeur <code>true/false</code> du composant.
+                    </li>
+                    <li>
+                        <code>label-on</code> (type: <code>string</code>)<br />
+                        Label pour la valeur <code>true</code>.
+                    </li>
+                    <li>
+                        <code>label-off</code> (type: <code>string</code>)<br />
+                        Label pour la valeur <code>false</code>.
+                    </li>
+                    <li>
+                        <code>variant-class</code> (type: <code>string</code>)<br />
+                        Classe(s) CSS optionnelle(s) à ajouter sur le <a href="http://getbootstrap.com/css/#forms" target="_blank">form-control</a>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Switch -->
+        
+        <!-- Tags -->
+        <h2 id="tags" ui-anchor is-group>Tags</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <h4 id="tag-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <ui-tags max-tags="3" ng-model="vm.tagDemo" ng-change="vm.tagChange(value)"></ui-tags>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-tag 
+    max-tags="3" 
+    ng-model="vm.tagDemo" 
+    ng-change="vm.tagChange(value)">
+&lt;/ui-tag></code></pre>
+                </figure>
+                <h4 id="tags-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>ng-model</code> (type: <code>array</code>)<br />
+                        Tableau des éléments à afficher.
+                    </li>
+                    <li>
+                        <code>max-tags</code> (type: <code>number</code>, default: <code>5</code>)<br />
+                        Nombre maximum de tags à afficher avant que l'overflow ne s'active.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Tags -->
+        
+        <!-- Treeview -->
+        <h2 id="treeview" ui-anchor is-group>Treeview</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <h4 id="treeview-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <ui-treeview id="treeviewDemo" placeholder="Rechercher une valeur" empty-label="Aucun résultat" 
+                        ng-model="vm.treeviewDemo" ng-change="vm.treeviewChange(value)">
+                    </ui-treeview>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-treeview 
+    id="treeviewDemo" 
+    placeholder="Rechercher une valeur" 
+    empty-label="Aucun r&eacute;sultat" 
+    ng-model="vm.treeviewDemo" 
+    ng-change="vm.treeviewChange(value)"&gt;
+&lt;/ui-treeview&gt;</code></pre>
+                </figure>
+                <h4 id="treeview-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>ng-model</code> (type: <code>array</code>)<br />
+                        Tableau des éléments à afficher dans la liste.
+                    </li>
+                    <li>
+                        <code>min-length</code> (type: <code>number</code>, default: <code>3</code>)<br />
+                        Nombre de caractères nécessaires pour que la recherche soit prise en compte.
+                    </li>
+                    <li>
+                        <code>placeholder</code> (type: <code>string</code>)<br />
+                        Label s'affichant dans le champs de recherche quand il est vide.
+                    </li>
+                    <li>
+                        <code>empty-label</code> (type: <code>string</code>, default: <code>'No result</code>)<br />
+                        Label s'affichant lorsque la liste des éléments est vide.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Treeview -->
+
+        <!-- Uploader -->
+        <h2 id="uploader" ui-anchor is-group>Uploader</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <h4 id="uploader-example" ui-anchor>Exemple</h4>
+                <div class="example">
+                    <ui-uploader name="demoUploader" accept="image/jpeg,image/png,image/gif" size="1024000"
+                        ng-model="vm.uploaderDemo" ng-change="vm.uploaderChange(value)" required>
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </ui-uploader>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-uploader 
+    name="demoUploader"
+    accept="image/jpeg,image/png,image/gif" 
+    size="1024000" 
+    ng-model="vm.uploaderDemo" 
+    ng-change="vm.uploaderChange(value)" 
+    required&gt;
+    &lt;i class="fa fa-picture-o" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/ui-uploader&gt;</code></pre>
+                <h4 id="uploader-variant" ui-anchor>Variantes</h4>
+                <div class="example">
+                    <p>
+                        <ui-uploader accept="image/jpeg,image/png,image/gif" size="1024000"
+                            ng-model="vm.uploaderDemo" variant-class="input-sm" required>
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </ui-uploader>
+                    </p>
+                    <p>
+                        <ui-uploader accept="image/jpeg,image/png,image/gif" size="1024000" 
+                            ng-model="vm.uploaderDemo">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </ui-uploader>
+                    </p>
+                    <p>
+                        <ui-uploader accept="image/jpeg,image/png,image/gif" size="1024000"
+                            ng-model="vm.uploaderDemo" variant-class="input-lg" required>
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </ui-uploader>
+                    </p>
+                </div>
+                <figure class="highlight">
+<pre><code class="language-html" data-lang="html">&lt;ui-uploader class="input-sm" ... &gt;
+    ...
+&lt;/ui-uploader&gt;
+&lt;ui-uploader ... &gt;
+    ...
+&lt;/ui-uploader&gt;
+&lt;ui-uploader class="input-lg" ... &gt;
+    ...
+&lt;/ui-uploader&gt;</code></pre>
+                <h4 id="uploader-parameters" ui-anchor>Paramètres</h4>
+                <ul>
+                    <li>
+                        <code>ng-model</code> (type: <code>file</code>)<br />
+                        Fichier chargé par le composant
+                    </li>
+                    <li>
+                        <code>accept</code> (type: <code>string</code>)<br />
+                        Définit les <a href="http://www.w3schools.com/tags/att_input_accept.asp" target="_blank">formats de fichier acceptés</a> par le composant.
+                    </li>
+                    <li>
+                        <code>size</code> (type: <code>number</code>)<br />
+                        Définit le poid maximal d'un fichier en octet.
+                    </li>
+                    <li>
+                        <code>required</code><br />
+                        Définit le champs comme requis pour la soumission d'un formulaire
+                    </li>
+                    <li>
+                        <code>variant-class</code> (type: <code>string</code>)<br />
+                        Classe(s) CSS optionnelle(s) à ajouter sur le <a href="http://getbootstrap.com/css/#forms" target="_blank">form-control</a>.
+                    </li>
+                    <li>
+                        <code>on-load</code> (type: <code>function</code>)<br />
+                        Fonction déclenchée lorsque le fichier est chargé.
+                    </li>
+                    <li>
+                        <code>on-progress</code> (type: <code>function</code>)<br />
+                        Fonction déclenchée lorsque le fichier est en cours de chargement.
+                    </li>
+                    <li>
+                        <code>on-error</code> (type: <code>function</code>)<br />
+                        Fonction déclenchée lorsque le fichier n'est pas valide.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /Uploader -->
+
+    </div>
+</div>

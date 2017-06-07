@@ -1,0 +1,29 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/badges.less';
+
+// Badges
+.badge {
+    line-height: @line-height-small;
+    display: inline;
+    padding: 0 5px;
+    font-size: @font-size-small;
+    font-weight: @font-weight-normal;
+    text-align: center;
+    text-indent: -1px; // For a better centering
+    border-radius: (@line-height-small / 2);
+    
+    // State
+    .m-badge-variant(@name, @color, @bg) {
+        &-@{name} {
+            color: @color;
+            background: @bg;
+        }
+    }
+    
+    .m-badge-variant(default, @text-base, @brand-default);
+    .m-badge-variant(primary, @text-inverse, @brand-primary);
+    .m-badge-variant(info, @text-inverse, @brand-info);
+    .m-badge-variant(success, @text-inverse, @brand-success);
+    .m-badge-variant(warning, @text-inverse, @brand-warning);
+    .m-badge-variant(danger, @text-inverse, @brand-danger);
+}

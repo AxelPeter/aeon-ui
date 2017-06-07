@@ -1,0 +1,61 @@
+
+/* Treeview */
+.treeview {
+
+    ul { list-style: none; }
+
+    &-list {
+        max-height: 300px;
+        overflow-y: auto;
+        margin: 0;
+        padding: 5px 5px 5px 25px;
+        border: transparent 1px solid;
+
+        a { color:#34495e; }
+
+        &-bordered { border-color: #e2e3e4; }
+    }
+
+    &-container {
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        padding-left: 20px;
+
+        .open > & { height: auto; }
+    }
+
+    &-checkbox {
+        margin-left: -20px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &-btn {
+        line-height: 20px;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+
+        .toggle { 
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-left: -20px;
+            vertical-align: top;
+            transform: rotate(0);
+            transform-origin: center center;
+            transition: transform .5s ease;
+
+            .open > & { transform: rotate(90deg); }
+        }
+
+        .link { 
+            display: inline-block;
+            padding: 0 5px;
+            text-align: left;
+        }
+    }
+}

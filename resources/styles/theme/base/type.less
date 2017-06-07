@@ -1,0 +1,80 @@
+/// <reference path="../core/references.less" />
+@import "@{path-bs}/type.less";
+
+// Headings
+h1, .h1, 
+h2, .h2,
+h3, .h3, 
+h4, .h4,
+h5, .h5, 
+h6, .h6 { 
+    margin-top: @spacing-large;
+    margin-bottom: @spacing-base;
+    text-transform: uppercase;
+    
+    &:first-child { margin-top: @spacing-small; }
+}
+
+h1, .h1 {
+    line-height: @line-height-title;
+    font-size: @font-size-title;
+    font-weight: @font-weight-bold;
+}
+
+h2, .h2 {
+    line-height: @line-height-title;
+    font-size: @font-size-title;
+    font-weight: @font-weight-light;
+}
+
+h3, .h3 {
+    line-height: @line-height-large;
+    font-size: @font-size-large;
+    font-weight: @font-weight-bold;
+}
+
+h4, .h4 {
+    line-height: @line-height-large;
+    font-size: @font-size-large;
+    font-weight: @font-weight-light;
+}
+
+h5, .h5 {
+    line-height: @line-height-base;
+    font-size: @font-size-base;
+    font-weight: @font-weight-bold;
+}
+
+h6, .h6 {
+    line-height: @line-height-base;
+    font-size: @font-size-base;
+    font-weight: @font-weight-normal;
+}
+
+// Text
+p { margin-bottom: @spacing-small; }
+
+// Lists
+ul,
+ol {
+    margin-bottom: @spacing-small;
+
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+dl { margin-bottom: @spacing-small; }
+
+// Emphasis
+mark,
+.mark {
+    padding: 0;
+    background: @color-mark;
+}
+
+// Contextual colors
+.text-muted { color: rgba(52, 73, 94, .5); }
+.text-underline { text-decoration: underline !important; }

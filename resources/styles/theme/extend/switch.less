@@ -1,0 +1,107 @@
+/// <reference path="../core/references.less" />
+
+// Switch Buttons (Custom checkbox)
+.switch {
+    @border: 1px;
+    @height: @input-height-base - (@border * 2);
+    @spacing: (@height / 8);
+    
+    &,
+    ui-switch.form-control {
+        width: auto;
+        height: auto;
+        line-height: 0;
+        padding: 0;
+        margin: 0;
+        display: block;
+        text-align: left;
+        transition: none;
+        border: none;
+    }
+
+    &-label {
+        min-width: 50px;
+        height: @input-height-base;
+        margin: 0;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        white-space: nowrap;
+        font-size: 0;
+        border: @border-input @border solid;
+        border-radius: (@input-height-base / 2);
+        color: @text-base;
+        background: @brand-default;
+        transition: background .4s ease, color .4s ease;
+
+        .m-no-selection;
+        
+        &.focus { border-color: @border-active; }
+    }
+    
+    &-control {
+        margin: 0;
+        position: absolute;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    
+    &-on,
+    &-off {
+        min-width: 100px;
+        height: @height;
+        line-height: @height;
+        padding: 0 @spacing-small;
+        display: block;
+        vertical-align: top;
+        text-align: center;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-size: @font-size-base;
+        transition: transform .4s ease;
+        transform-origin: 0 50%;
+    }
+
+    &-off { 
+        padding-left: (@height - @spacing + @spacing-small);
+        transform: translate(0, 0);
+    }
+    
+    &-on { 
+        padding-right: (@height - @spacing + @spacing-small);
+        transform: translate(-100%, -100%);
+    }
+    
+    &-bullet {
+        width: @height;
+        height: @height;
+        margin-left: -@height;
+        position: absolute;
+        left: @height;
+        top: 0;
+        border: @brand-default @spacing solid;
+        border-radius: 50%;
+        background: @bg-input;
+        transition: left .4s ease, border-color .4s ease;
+    }
+    
+    // Block
+    &-block,
+    &-block &-label { display: block; }
+    &-block &-on,
+    &-block &-off { width: 100%; }
+        
+    // Active
+    &.active &-label {
+        color: @text-inverse;
+        border-color: @brand-primary;
+        background: @brand-primary;
+        
+        &.focus { border-color: @brand-primary-hover; }
+    }
+    &.active &-bullet { border-color: @brand-primary; }
+    &.active &-off { transform: translate(100%, 0);  }
+    &.active &-on { transform: translate(0, -100%); }
+    &.active &-bullet { left: 100%; }
+}

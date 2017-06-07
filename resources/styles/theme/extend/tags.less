@@ -1,0 +1,51 @@
+/// <reference path="../core/references.less" />
+
+// Tags
+.tag {
+    @btn-height: @btn-height-sm;
+    @border: 1px;
+
+    max-width: 100%;
+    height: @btn-height;
+    margin-right: @spacing-mini;
+    margin-top: (@spacing-mini / 2);
+    margin-bottom: (@spacing-mini / 2);
+    overflow: hidden;
+    position: relative;
+    padding-left: (@spacing-mini + @btn-height);
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    
+    & > .ci {
+        width: @btn-height;
+        height: @btn-height - (@border * 2);
+        line-height: @btn-height - (@border * 2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: @font-size-small;
+    }
+
+    &-overflow {
+        max-width: 100%;
+        height: @btn-height;
+        margin-right: @spacing-mini;
+        margin-top: (@spacing-mini / 2);
+        margin-bottom: (@spacing-mini / 2);
+        overflow: hidden;
+        position: relative;
+        vertical-align: middle;
+        cursor: default;
+    }
+
+    &-clear {
+        min-width: @btn-height;
+        height: @btn-height;
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: (@spacing-mini / 2);
+        margin-bottom: (@spacing-mini / 2);
+        vertical-align: middle;
+        font-size: @font-size-small;
+    }
+}

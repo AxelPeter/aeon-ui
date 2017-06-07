@@ -1,0 +1,58 @@
+/// <reference path="../core/references.less" />
+
+// Sidebar
+.sidebar {
+    width: @sidebar-width;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: @bg-sidebar;
+    box-shadow: @shadow-sidebar;
+    z-index: 1001;
+
+    .has-navbar & { top: @navbar-height; }
+
+    .has-sidebar & {
+        left: 0;
+        transition: left @duration-enter @animation-enter;
+    }
+
+    &-wrapper {
+        min-height: 100%;
+        padding: 0 @spacing-container;
+        overflow: auto;
+        position: relative;
+    }
+
+    @media (max-width: @screen-sm-max) {
+        box-shadow: @shadow-z-depth-2;
+
+        .has-sidebar & {
+            left: -(@sidebar-width + 10px); // To avoid the box-shadow to be visible
+            transition: left @duration-leave @animation-leave;
+        }
+
+        &-open { overflow-y: hidden; }
+
+        &-open & {
+            left: 0;
+            transition: left @duration-enter @animation-enter;
+        }
+
+        &-open &-backdrop {
+            content: ' ';
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            background: @color-black;
+            z-index: 1000;
+        }
+    }
+}

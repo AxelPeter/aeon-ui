@@ -1,0 +1,44 @@
+/// <reference path="../core/references.less" />
+@import "@{path-bs}/utilities.less";
+@import "@{path-bs}/responsive-utilities.less";
+
+// Margin
+.margin {
+    &-top {
+        margin-top: @spacing-base;
+        
+        &-small { margin-top: @spacing-small !important; }
+        &-large { margin-top: @spacing-large !important; }
+    }
+    &-bottom {
+        margin-bottom: @spacing-base;
+        
+        &-small { margin-bottom: @spacing-small !important; }
+        &-large { margin-bottom: @spacing-large !important; }
+    }
+}
+
+.no-margin {
+    &-top { margin-top: 0 !important; }
+    &-bottom { margin-bottom: 0 !important; }
+}
+
+// Separation bar
+.separation {
+    height: 1px;
+    padding: 0;
+    margin: 25px 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
+    background: @bg-page;
+}
+
+.z-depth {
+    &-0 { box-shadow: @shadow-z-depth-0 !important; }
+    &-1 { box-shadow: @shadow-z-depth-1 !important; }
+    &-2 { box-shadow: @shadow-z-depth-2 !important; }
+    &-3 { box-shadow: @shadow-z-depth-3 !important; }
+    &-4 { box-shadow: @shadow-z-depth-4 !important; }
+    &-5 { box-shadow: @shadow-z-depth-5 !important; }
+}

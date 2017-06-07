@@ -1,0 +1,33 @@
+/// <reference path="../core/references.less" />
+@import "@{path-bs}/scaffolding.less";
+
+// Window
+body {
+    font-size: @font-size-base;
+    font-family: @font-family-base;
+    color: @text-base;
+    background: @bg-page;
+    
+    &.has-sidebar {
+        padding-left: @sidebar-width;
+        transition: padding @duration-leave @animation-leave;
+        
+        @media (max-width: @screen-sm-max) {
+            padding-left: 0;
+            transition: padding @duration-leave @animation-leave;
+        }
+    }
+    
+    &.has-navbar { padding-top: @navbar-height; }
+    
+    @media (max-width: @screen-mobile-max) {
+        word-break: break-word;
+    }
+}
+
+
+// Images
+img {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,139 @@
+/// <reference path="../core/references.less" />
+
+// Datepicker UI Bootstrap
+.uib-datepicker {
+    @icon-size: 5px;
+    
+    padding: @spacing-small;
+    display: inline-block;
+    border: none;
+    background: @table-bg;
+    
+    &-popup {
+        padding: 10px;
+        box-shadow: @shadow-modal;
+        
+        &.dropdown-menu > li { border: none; }
+    }
+    
+    &-popup & {
+        padding: 0;
+        display: block;
+        border: none;
+    }
+    
+    .btn {
+        min-width: @component-height-base;
+        min-height: @component-height-base;
+        padding: 5px;
+        font-size: @font-size-base;
+        font-weight: @font-weight-normal;
+        border-color: @table-bg;
+        background: @table-bg;
+        
+        span { color: inherit; }
+        
+        &.active,
+        &.btn-info {
+            color: @text-inverse;
+            border-radius: 2px;
+            background: @brand-primary;
+            
+            &:hover {
+                background: @brand-primary-hover;
+            }
+        }
+        
+        &.disabled,
+        &[disabled] {
+            opacity: 1;
+            color: @text-disabled;
+            border-color: transparent;
+            background: @bg-table-cell-even;
+        }
+    }
+    
+    thead tr:first-child { border-bottom: @table-bg @spacing-small solid; }
+    
+    
+    
+    
+    
+    // Icons
+    .uib-left,
+    .uib-right {
+        max-width: @component-height-base;
+        padding: 0;
+        text-align: center;
+        border-radius: 2px;
+        border: none;
+        background: @brand-primary;
+        
+        &:hover { background: @brand-primary-hover; }
+        
+        .glyphicon { 
+            width: 0;
+            height: 0;
+            display: inline-block;
+            border-top: @icon-size solid transparent;
+            border-bottom: @icon-size solid transparent;
+            
+            &::after,
+            &::before { display: none; }
+        }
+    }
+    
+    .uib-left .glyphicon {
+        margin-left: -2px;
+        border-right: (@icon-size * 1.5) solid @text-inverse;
+    }
+    .uib-right .glyphicon {
+        margin-right: -2px;
+        border-left: (@icon-size * 1.5) solid @text-inverse;
+    }
+    
+    .uib-title {
+        border-color: @table-bg !important;
+        background: @table-bg !important;
+    }
+}
+
+.uib-button-bar {
+    margin-top: 10px;
+    padding: 0;
+    
+    &::after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}
+
+.uib-daypicker { 
+    outline: none !important;
+    
+    thead tr {
+        th { 
+            font-size: @font-size-small;
+            font-weight: @font-weight-bold;
+            text-transform: uppercase;
+            background: @bg-table-cell-even;
+        }
+        
+        &:first-child th { background: none; }
+    }
+    
+    .uib-weeks td { 
+        font-weight: @font-weight-light;
+        background: @bg-table-cell-even;
+    
+        &.uib-day { font-weight: @font-weight-normal; }
+    }
+}
+
+.uib-datepicker-popup { box-shadow: @shadow-dropdown; }
+
+.uib-monthpicker .uib-months .btn { 
+    min-width: none;
+    width: 100%;
+}

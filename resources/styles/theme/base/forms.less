@@ -1,0 +1,255 @@
+/// <reference path="../core/references.less" />
+@import "@{path-bs}/forms.less";
+
+// Form Wrapper
+.form-wrapper { max-width: 775px; }
+
+// Form sections
+.form-section {
+    margin: 0;
+    padding-top: @spacing-small;
+    padding-bottom: @spacing-small;
+    border: none;
+    border-top: @border-page 1px solid;
+
+    &-title {
+        line-height: @line-height-base;
+        margin-bottom: @spacing-small;
+        text-transform: uppercase;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+    }
+
+    &-menu {
+        float: right;
+
+        .btn {
+            @size: @line-height-base;
+
+            width: @size;
+            height: @size;
+            line-height: @size;
+            padding: 0;
+        }
+
+        &.open .dropdown-toggle {
+            box-shadow: none;
+            color: @color-primary;
+        }
+    }
+    
+    &.btn-section {
+        padding-top: @spacing-container;
+        text-align: center;
+    }
+    
+    &.no-border {
+        padding-top: 0;
+        border-top: none;
+    }
+}
+
+// Form controls
+.form-control {
+    box-shadow: none;
+    border: @border-input 1px solid;
+    font-weight: @font-weight-light;
+    border-radius: 0;
+
+    &:focus { 
+        border-color: @border-active;
+        box-shadow: none;
+    }
+    
+    &::-ms-clear,
+    &::-ms-reveal { display: none; }
+
+    select& { 
+        padding: 0 @spacing-small;
+        
+        &[multiple] { height: auto; }
+    }
+
+    input& { padding: @spacing-mini @spacing-small; }
+    
+    textarea& {
+        padding: @spacing-mini @spacing-small;
+        border-radius: 0;
+        resize: vertical;
+    }
+    
+    // Form group
+    .form-group-sm &,
+    .form-group-lg & { border-radius: 0; }
+    
+    // Static text
+    &-static {
+        @padding: (@input-height-base - @line-height-base) / 2;
+        
+        min-height: @input-height-base;
+        line-height: @line-height-base;
+        margin: 0;
+        padding-top: @padding;
+        padding-bottom: @padding;
+    }
+    
+    // Feedback icon
+    &-feedback,
+    &-feedback.ci,
+    &-feedback.fa {
+        width: @input-height-base;
+        height: @input-height-base;
+        line-height: @input-height-base;
+        font-size: @font-size-base;
+        position: absolute;
+        right: @spacing-mini;
+        color: @border-input;
+    }
+    
+    .has-feedback & { padding-right: @input-height-base + 5px; }
+    
+    .has-feedback &.input-lg,
+    .has-feedback .input-group-lg &,
+    .form-group-lg.has-feedback & { padding-right: @input-height-large + 5px; }
+    
+    .has-feedback &.input-sm,
+    .has-feedback .input-group-sm &,
+    .form-group-sm.has-feedback &{ padding-right: @input-height-small + 5px; }
+
+    .input-lg ~ &-feedback,
+    .input-group-lg ~ &-feedback,
+    .form-group-lg & ~ &-feedback { 
+        width: @input-height-large;
+        height: @input-height-large;
+        line-height: @input-height-large;
+        font-size: @font-size-large;
+    }
+
+    .input-sm ~ &-feedback,
+    .input-group-sm ~ &-feedback,
+    .form-group-sm & ~ &-feedback { 
+        width: @input-height-small;
+        height: @input-height-small;
+        line-height: @input-height-small;
+        font-size: @font-size-small;
+    }
+}
+
+// Form labels
+.control-label {
+    line-height: @line-height-base;
+    font-size: @font-size-base;
+    font-weight: @font-weight-normal;
+    
+    &.required::after {
+        content: '*';
+        margin-left: 2px;
+        font-size: .8em;
+        color: inherit;
+    }
+    
+    .form-horizontal & { padding-top: (@input-height-base - @line-height-base) / 2; }
+}
+
+// Form inputs
+.input {
+    &-rounded { border-radius: (@input-height-base / 2); }
+    &-rounded&-sm { border-radius: (@input-height-small / 2); }
+    &-rounded&-lg { border-radius: (@input-height-large / 2); }
+}
+
+// Form Checkbox & Radio
+.checkbox,
+.radio {
+    line-height: @input-height-sm;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    label {
+        line-height: @line-height-base;
+        padding-left: @line-height-base;
+        font-size: @font-size-base;
+    }
+    
+    &-list {
+        @border-width: 1px;
+        
+        margin-bottom: @spacing-small;
+        padding: 0 @spacing-small;
+        border: transparent @border-width solid;
+
+        &-bordered {
+            max-height: (@input-height-sm * 5) + (@border-width * 2);
+            overflow-x: hidden;
+            overflow-y: auto;
+            border-color: @border-input;
+        }
+    }
+
+    &-list &:first-child { margin-top: 0; }
+    &-list &:last-child { margin-bottom: 0; }
+
+    &-custom {
+        label { position: relative; }
+
+        input {
+            opacity: 0;
+            margin: 0;
+            position: absolute;
+        }
+
+        input + span::before {
+            content: ' ';
+            width: @check-height-base;
+            height: @check-height-base;
+            position:absolute;
+            left: 0;
+            top: (@line-height-base - @check-height-base) / 2;
+            display: inline-block;
+            vertical-align: middle;
+            border: transparent 1px solid;
+        }
+        
+        input:hover + span,
+        input:focus + span  { text-decoration: underline; }
+
+        input:not(:checked) + span::before { background: @border-input; }
+
+        input:checked + span {
+            color: @text-link;
+
+            &::before { background: @bg-active; }
+        }
+    }
+    
+    .form-horizontal & { padding-top: (@input-height-base - @line-height-base) / 2; }
+}
+
+.checkbox + .checkbox,
+.radio + .radio { margin-top: 0; }
+
+.radio-custom input + span::before { border-radius: 50%; }
+
+// Has error
+.has-error {
+    .checkbox, 
+    .checkbox-inline, 
+    .control-label, 
+    .help-block, 
+    .radio, 
+    .radio-inline, 
+    &.checkbox label, 
+    &.checkbox-inline label, 
+    &.radio label, 
+    &.radio-inline label { color: @brand-danger; }
+
+    .form-control { 
+        border-color: @brand-danger;
+        
+        &:focus { 
+            border-color: @brand-danger;
+            box-shadow: @shadow-danger;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/list-group.less';
+
+.list-group {
+    font-weight: @font-weight-light;
+    
+    &-item { 
+        padding: @spacing-small @spacing-base;
+    
+        @media (max-width: @screen-mobile-max) { padding: @spacing-small; }
+        
+        &-heading { 
+            &,
+            &:first-child { margin-top: 0; }
+        }
+        
+        // Active
+        &.active {
+            color: @text-inverse;
+            background: @color-active;
+            
+            &:hover,
+            &:focus { background: @color-active-hover; }
+            
+            &,
+            &:hover,
+            &:focus { 
+                .list-group-item-heading,
+                .list-group-item-text { color: inherit; }
+            }
+        }
+        
+        // States        
+        &-success,
+        &-info,
+        &-warning,
+        &-danger {
+            &,
+            a&,
+            button& {
+                color: @text-inverse;
+                
+                &,
+                &:hover,
+                &:focus { color: @text-base; }
+            
+                &,
+                &:hover,
+                &:focus { 
+                    .list-group-item-heading,
+                    .list-group-item-text { color: inherit; }
+                }
+            }
+        }
+            
+        .m-active-state(@state; @normal; @hover;) {
+            &-@{state}.active {
+                &,
+                a&,
+                button& {
+                    color: @text-inverse;
+                    background: @normal;
+
+                    &:hover,
+                    &:focus { background: @hover; }
+
+                    &,
+                    &:hover,
+                    &:focus { 
+                        .list-group-item-heading,
+                        .list-group-item-text { color: inherit; }
+                    }
+                }
+            }
+        }
+
+        .m-active-state(success; @color-success; @color-success-hover);
+        .m-active-state(info; @color-info; @color-info-hover);
+        .m-active-state(warning; @color-warning; @color-warning-hover);
+        .m-active-state(danger; @color-danger; @color-danger-hover);
+    }
+}

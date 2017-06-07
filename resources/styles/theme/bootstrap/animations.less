@@ -1,0 +1,26 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/component-animations.less';
+
+.collapsing {
+    transition-property: height, visibility;
+    transition-duration: @duration-base;
+    transition-timing-function: @animation-base;
+    
+    &.in-add {
+        transition-duration: @duration-enter;
+        transition-timing-function: @animation-enter;
+    }
+    &.in-remove {
+        transition-duration: @duration-leave;
+        transition-timing-function: @animation-leave;
+    }
+}
+
+// View transitions
+[ui-view] {
+    transition: @duration-leave @animation-leave opacity;
+
+    &.ng-enter { opacity: 0; }
+    &.ng-enter.ng-enter-active { opacity: 1; }
+    &.ng-leave { display: none; }
+}

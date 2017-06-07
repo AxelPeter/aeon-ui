@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="wiki">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="/">
+
+    <title>Aeon UI</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="css/aeon-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/wiki.css">
+
+    <script src="js/vendor.js"></script>
+    <script src="js/aeon-ui.js"></script>
+    <script src="js/wiki.js"></script>
+</head>
+
+<body class="has-navbar has-sidebar" ng-class="{ 'sidebar-open': sidebarOpened }">
+    <!-- .navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" ng-include="'partials/_navbar.html'"></div>
+    <!-- /.navbar -->
+
+    <!-- .sidebar -->
+    <div class="sidebar" ui-sidebar="sidebarOpened" ng-include="'partials/_sidebar.html'"></div>
+    <div class="sidebar-backdrop" ng-click="closeAll()"></div>
+    <!-- .sidebar -->
+
+    <!-- .main -->
+    <div class="main" ui-view autoscroll="true"></div>
+    <!-- /.main -->
+</body>
+
+</html>

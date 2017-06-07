@@ -1,0 +1,120 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/buttons.less';
+
+.btn {
+    @border: 1px;
+    @padding: (@btn-height-base - @line-height-base - (@border * 2)) / 2;
+    
+    line-height: @line-height-base;
+    padding: @padding @spacing-base;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: @font-size-base;
+    font-weight: @font-weight-normal;
+    vertical-align: baseline;
+    color: @text-base;
+    border: @color-none @border solid;
+    background: @color-none;
+    
+    i { font-weight: @font-weight-normal; }
+    
+    &.active,
+    &:active { box-shadow: none; }
+
+    // Close button
+    &.close {
+        display: inline-block;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 10px;
+        vertical-align: middle;
+        color: #fff;
+        border-color: @color-active;
+        background: @bg-active;
+        opacity: 1;
+
+        &:hover, &:focus, &:active:hover, &:active:focus {
+            opacity: 1;
+            background: @bg-active-hover;
+        }
+    }
+
+    // Extra small button
+    &-xs {
+        @padding: (@btn-height-xs - @line-height-small - (@border * 2)) / 2;
+        
+        min-width: 0;
+        line-height: @line-height-small;
+        padding: @padding @spacing-small;
+        font-size: @font-size-small;
+        border-radius: 0;
+    }
+
+    // Small button
+    &-sm {
+        @padding: (@btn-height-sm - @line-height-base - (@border * 2)) / 2;
+        
+        min-width: 0;
+        line-height: @line-height-base;
+        padding: @padding @spacing-small;
+        font-size: @font-size-base;
+        border-radius: 0;
+    }
+    
+    // Large button
+    &-lg {
+        @padding: (@btn-height-lg - @line-height-large - (@border * 2)) / 2;
+        
+        min-width: 180px;
+        line-height: @line-height-large;
+        padding: @padding @spacing-large;
+        font-size: @font-size-base;
+        border-radius: 0;
+    }
+
+    .m-btn-theme(@text, @border, @bg) {
+        color: @text;
+        border-color: @border;
+        background: @bg;
+        transition: border @duration-base @animation-base, color @duration-base @animation-base, background @duration-base @animation-base;
+        
+        &.active,
+        &:active,
+        &:focus,
+        &:hover,
+        &.active:focus,
+        &:active:focus, 
+        &.active:hover,
+        &:active:hover {
+            text-decoration: none;
+            color: @text;
+            border-color: darken(@border, 5%);
+            background: darken(@bg, 5%);
+        }
+        
+        .open > .dropdown-toggle& {
+            &
+            &.active,
+            &:active,
+            &:focus,
+            &:hover,
+            &.active:focus,
+            &:active:focus, 
+            &.active:hover,
+            &:active:hover {
+                color: @text;
+                border-color: darken(@border, 5%);
+                background: darken(@bg, 5%);
+            }
+        }
+    }
+
+    &-default { .m-btn-theme(@text-base, @brand-default, @brand-default); }
+    &-primary { .m-btn-theme(@text-inverse, @brand-primary, @brand-primary); }
+    &-info { .m-btn-theme(@text-inverse, @brand-info, @brand-info); }
+    &-success { .m-btn-theme(@text-inverse, @brand-success, @brand-success); }
+    &-warning { .m-btn-theme(@text-inverse, @brand-warning, @brand-warning); }
+    &-danger { .m-btn-theme(@text-inverse, @brand-danger, @brand-danger); }
+    &-link { .m-btn-theme(@color-link, @color-primary, @color-none); }
+}

@@ -1,0 +1,26 @@
+/// <reference path="../core/references.less" />
+
+// Timepicker UI Bootstrap
+.uib-timepicker {
+    .uib-separator { padding: 0 5px; }
+    
+    .uib-increment,
+    .uib-decrement {
+        .btn {
+            padding: 5px;
+        }
+        
+        .glyphicon { 
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            background: url('../images/sprite.png') no-repeat;
+
+            &::after,
+            &::before { display: none; }
+        }
+    }
+
+    .uib-increment .glyphicon { background-position: -70px -160px; }
+    .uib-decrement .glyphicon { background-position: -80px -160px; }
+}

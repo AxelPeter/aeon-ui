@@ -1,0 +1,11 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/button-groups.less';
+
+.btn-group { 
+    .btn + .btn, 
+    .btn + .btn-group, 
+    .btn-group + .btn, 
+    .btn-group + .btn-group { margin-left: 1px; }
+
+    &.open .dropdown-toggle { box-shadow: none; }
+}

@@ -1,0 +1,160 @@
+/// <reference path="../core/references.less" />
+
+// Dropdown Launcher (Custom Dropdown Menu)
+.launcher {
+    min-width: 0;
+    width: 300px;
+    padding: 10px;
+    box-sizing: content-box;
+    box-shadow: @shadow-modal;
+    background: @bg-dropdown;
+
+    &::after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+
+    > li {
+        width: 33.33%;
+        float: left;
+        border: none;
+
+        // To avoid the float effect
+        &:nth-child(3n+1) {
+            clear: left;
+        }
+
+        > a {
+            padding: 5px;
+            display: block;
+            text-align: center;
+            white-space: normal;
+            font-size: @font-size-base;
+            font-weight: @font-weight-normal;
+            color: inherit !important;
+            background: none !important;
+        }
+                
+        // Differents colors for each app tile
+        .m-tile-color(@color-bg, @color-text) {
+            .launcher-icon {
+                color: @text-base;
+                background: @color-bg;
+            }
+
+            &:hover .launcher-icon,
+            &:focus .launcher-icon,
+            &:active .launcher-icon { background: darken(@color-bg, 10%); }
+        }
+        &:nth-child(1) { .m-tile-color(@color-u2, @text-inverse); }
+        &:nth-child(2) { .m-tile-color(@color-u1, @text-inverse); }
+        &:nth-child(3) { .m-tile-color(@color-p2, @text-inverse); }
+        &:nth-child(4) { .m-tile-color(@color-u4, @text-inverse); }
+        &:nth-child(5) { .m-tile-color(@color-u5, @text-inverse); }
+        &:nth-child(6) { .m-tile-color(@color-u6, @text-inverse); }
+        &:nth-child(7) { .m-tile-color(@color-u7, @text-inverse); }
+        &:nth-child(8) { .m-tile-color(@color-u8, @text-inverse); }
+        &:nth-child(9) { .m-tile-color(@color-u3, @text-inverse); }
+
+        .m-tile-active(@color) {
+            .launcher-icon {
+                color: @color;
+                box-shadow: inset 0 0 0 1px @color; // As a border
+                background: @bg-section;
+            }
+
+            &:hover .launcher-icon,
+            &:focus .launcher-icon,
+            &:active .launcher-icon { 
+                color: darken(@color, 10%);
+                box-shadow: inset 0 0 0 1px darken(@color, 10%);
+                background: @bg-section;
+            }
+        }
+        &.active:nth-child(1) { .m-tile-active(@color-u2); }
+        &.active:nth-child(2) { .m-tile-active(@color-u1); }
+        &.active:nth-child(3) { .m-tile-active(@color-p2); }
+        &.active:nth-child(4) { .m-tile-active(@color-u4); }
+        &.active:nth-child(5) { .m-tile-active(@color-u5); }
+        &.active:nth-child(6) { .m-tile-active(@color-u6); }
+        &.active:nth-child(7) { .m-tile-active(@color-u7); }
+        &.active:nth-child(8) { .m-tile-active(@color-u8); }
+        &.active:nth-child(9) { .m-tile-active(@color-u3); }
+    }
+    
+    &-icon {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 5px;
+        font-size: @font-size-title;
+        font-weight: normal;
+        border-radius: 50%;
+    }
+}
+
+
+// Mobile Dropdown menu
+@media (max-width: @screen-xs-max) {
+    .uib-dropdown-open .launcher > li {
+        > a {
+            .launcher-link-text {
+                display: inline;
+                margin-left: 8px;
+                text-transform: uppercase;
+                font-size: @font-size-base;
+                font-weight: @font-weight-bold;
+            }
+
+            .launcher-link-icon {
+                line-height: normal;
+                display:inline;
+                text-align: left;
+                font-size: @font-size-large;
+            }
+        }
+
+        // Differents colors for each app tile
+        .m-tile-color(@color-bg, @color-text) {
+            color: @text-base !important;
+            background: @color-bg !important;
+
+            &:active,
+            &:hover,
+            &:focus { background: darken(@color-bg, 10%) !important; }
+        }
+
+        &:nth-child(1) > a { .m-tile-color(@color-u2, @text-inverse); }
+        &:nth-child(2) > a { .m-tile-color(@color-u1, @text-inverse); }
+        &:nth-child(3) > a { .m-tile-color(@color-p2, @text-inverse); }
+        &:nth-child(4) > a { .m-tile-color(@color-u4, @text-inverse); }
+        &:nth-child(5) > a { .m-tile-color(@color-u5, @text-inverse); }
+        &:nth-child(6) > a { .m-tile-color(@color-u6, @text-inverse); }
+        &:nth-child(7) > a { .m-tile-color(@color-u7, @text-inverse); }
+        &:nth-child(8) > a { .m-tile-color(@color-u8, @text-inverse); }
+        &:nth-child(9) > a { .m-tile-color(@color-u3, @text-inverse); }
+
+        .m-tile-active(@color) {
+            color: @color !important;
+            background: @bg-section !important;
+            box-shadow: inset 0 0 0 1px @color;
+
+            &:active,
+            &:hover,
+            &:focus { background: darken(@bg-section, 10%) !important; }
+        }
+
+        &.active:nth-child(1) > a { .m-tile-active(@color-u2); }
+        &.active:nth-child(2) > a { .m-tile-active(@color-u1); }
+        &.active:nth-child(3) > a { .m-tile-active(@color-p2); }
+        &.active:nth-child(4) > a { .m-tile-active(@color-u4); }
+        &.active:nth-child(5) > a { .m-tile-active(@color-u5); }
+        &.active:nth-child(6) > a { .m-tile-active(@color-u6); }
+        &.active:nth-child(7) > a { .m-tile-active(@color-u7); }
+        &.active:nth-child(8) > a { .m-tile-active(@color-u8); }
+        &.active:nth-child(9) > a { .m-tile-active(@color-u3); }
+    }
+}

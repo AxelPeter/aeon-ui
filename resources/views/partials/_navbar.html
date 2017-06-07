@@ -1,0 +1,43 @@
+<div class="container-fluid">
+
+    <!-- .navbar-toolbar -->
+    <div class="navbar-toolbar">
+        <div class="btn-group" uib-dropdown is-open="navOpened === 'nav'">
+            <button type="button" class="btn hidden-lg hidden-md hidden-sm" ng-click="openNav('nav')" uib-dropdown-toggle>
+                <i class="fa fa-ellipsis-h"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" uib-dropdown-menu>
+                <li ui-sref-active="active">
+                    <a ui-sref="home" ng-click="closeAll()">Démarrage</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="components" ng-click="closeAll()">Composants</a>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="btn hidden-lg hidden-md" ng-click="toggleSidebar()" ng-class="{ 'active': sidebarOpened }">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>
+    <!-- /.navbar-toolbar -->
+    
+    <!-- .navbar-header -->
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">Aeon UI Wiki</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <!-- .navbar-nav -->
+    <div class="navbar-collapse collapse navbar-dropdown">
+        <ul class="nav navbar-nav navbar-right">
+            <li ui-sref-active="active">
+                <a ui-sref="home" ng-click="closeAll()">Démarrage</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="components" ng-click="closeAll()">Composants</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-nav -->
+
+</div>

@@ -1,0 +1,81 @@
+/// <reference path="../core/references.less" />
+
+// File Uploader Component
+.uploader {
+    @border-width: 1px;
+    @control-size: @input-height-lg;
+    
+    &,
+    &.form-control {
+        width: @control-size;
+        height: @control-size;
+        line-height: 0;
+        padding: 0;
+        margin: 0;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    &.error &-content { border-color: @brand-danger; }
+    
+    &.focus &-content { border-color: @border-active; }
+    &.error.focus &-content { box-shadow: @shadow-danger; }
+    
+    &-input {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+    }
+
+    &-content {
+        width: @control-size;
+        height: @control-size;
+        line-height: @control-size - (2 * @border-width);
+        display: block;
+        text-align: center;
+        border-radius: 50%;
+        font-size: @font-size-large;
+        color: @text-inverse;
+        border: @brand-default @border-width solid;
+        border-radius: 50%;
+        background-color: @brand-default;
+        background-size: cover;
+        background-position: center center;
+        cursor: pointer;
+        
+        &:hover { background-color: darken(@brand-default, 5%); }
+        
+        .active > & { 
+            color: transparent;
+            background-color: @color-white;
+        }
+    }
+    
+    // Sizes
+    .m-uploader-size(@size-name, @control-size, @icon-size) {
+        &.input-@{size-name} {
+            width: @control-size;
+            height: @control-size;
+        }
+        
+        &.input-@{size-name} &-content {
+            width: @control-size;
+            height: @control-size;
+            line-height: @control-size - (2 * @border-width);
+            font-size: @icon-size;
+        }
+    }
+    
+    .m-uploader-size(sm, @component-height-base, @font-size-small);
+    .m-uploader-size(lg, @component-height-xl, @font-size-logo);
+}

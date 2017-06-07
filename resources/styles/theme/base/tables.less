@@ -1,0 +1,38 @@
+/// <reference path="../core/references.less" />
+@import "@{path-bs}/tables.less";
+
+.table {
+    margin-bottom: @spacing-container;
+    
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr > th,
+        > tr > td {
+            .table-condensed& {
+                padding-left: @spacing-small;
+                padding-right: @spacing-small;
+            }
+        }
+    }
+    
+    > thead {
+        > tr > th { 
+            text-transform: uppercase;
+            padding-top: @spacing-base;
+            padding-bottom: @spacing-base;
+
+            .table-condensed& { 
+                padding-top: @spacing-small;
+                padding-bottom: @spacing-small;
+            }
+        }
+        
+        tr:last-child th { border-bottom-width: @divider-height; }
+    }
+    
+    > tbody > tr > { 
+        th,
+        td { font-weight: @font-weight-light; }
+    }
+}

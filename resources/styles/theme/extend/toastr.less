@@ -1,0 +1,226 @@
+/// <reference path="../core/references.less" />
+
+// Toastr Plugin
+.toast {
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: @spacing-small;
+    padding: @alert-padding;
+    border-radius: @alert-border-radius;
+    box-shadow: @shadow-toast;
+    color: @toast-default-text;
+    opacity: .8;
+    background-color: @toast-default-bg;
+    transition: opacity @duration-base @animation-base;
+    
+    &:hover { opacity: 1; }
+    
+    &-title {
+        line-height: @line-height-base;
+        text-transform: uppercase;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+    }
+
+    &-message { 
+        word-wrap: break-word; 
+
+        a,
+        label { 
+            color: inherit;
+            font-weight: @alert-link-font-weight;
+        }
+        
+        a:hover { text-decoration: underline; }
+    }
+
+    &-close-button {
+        width: @close-height;
+        height: @close-height;
+        line-height: @close-height;
+        display: block;
+        position: absolute;
+        right: @spacing-mini;
+        top: @spacing-mini;
+        font-size: @font-size-small;
+        text-shadow: none;
+        opacity: .8;
+        color: @text-inverse;
+        transition: color @duration-base @animation-base;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
+    
+    button&-close-button {
+        padding: 0;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        -webkit-appearance: none;
+    }
+
+    & progress-bar,
+    &-progress {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        background-color: @text-inverse;
+        opacity: .4;
+    }
+    
+    
+    
+    
+    
+    // States
+    .m-toast-variant(@name, @var) {
+        @bg: 'toast-@{var}-bg';
+        @color: 'toast-@{var}-text';
+        
+        &-@{name} { 
+            color: @@color;
+            background-color: @@bg;
+        }
+    }
+    
+    .m-toast-variant(success, success);
+    .m-toast-variant(info, info);
+    .m-toast-variant(warning, warning);
+    .m-toast-variant(error, danger);
+    
+    
+    
+    
+    
+    // Positions
+    &-top {
+        &-center {
+            top: 0;
+            right: 0;
+            width: 100%;
+        }
+        
+        &-full-width {
+            top: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        &-left {
+            top: @spacing-small;
+            left: @spacing-small;
+        }
+
+        &-right {
+            top: @spacing-small;
+            right: @spacing-small;
+        }
+    }
+    
+    &-bottom {
+        &-center {
+            bottom: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        &-full-width {
+            bottom: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        &-right {
+            right: @spacing-small;
+            bottom: @spacing-small;
+        }
+
+        &-left {
+            bottom: @spacing-small;
+            left: @spacing-small;
+        }
+    }
+    
+    &-top-center &,
+    &-bottom-center & {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    &-top-full-width &,
+    &-bottom-full-width & {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+// Toastr container
+#toast-container {
+    position: fixed;
+    z-index: 999999;
+}
+
+
+/*Animations*/
+
+div[toast] {
+    opacity: 1 !important;
+}
+
+div[toast].ng-enter {
+    opacity: 0 !important;
+    transition: opacity .3s linear;
+}
+
+div[toast].ng-enter.ng-enter-active {
+    opacity: 1 !important;
+}
+
+div[toast].ng-leave {
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+div[toast].ng-leave.ng-leave-active {
+    opacity: 0 !important;
+}
+
+
+/*Responsive Design*/
+
+@media all and (max-width: 240px) {
+    #toast-container .toast.div {
+        padding: 8px 8px 8px 50px;
+        width: 11em;
+    }
+    #toast-container .toast-close-button {
+        right: -0.2em;
+        top: -0.2em;
+    }
+}
+
+@media all and (min-width: 241px) and (max-width: 480px) {
+    #toast-container .toast.div {
+        padding: 8px 8px 8px 50px;
+        width: 18em;
+    }
+    #toast-container .toast-close-button {
+        right: -0.2em;
+        top: -0.2em;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+    #toast-container .toast.div {
+        padding: 15px 15px 15px 50px;
+        width: 25em;
+    }
+}

@@ -1,0 +1,29 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/labels.less';
+
+// Labels
+.label {
+    line-height: @line-height-small;
+    padding: 0 @spacing-small;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: @font-size-small;
+    font-weight: @font-weight-normal;
+    color: @text-inverse;
+    border-radius: 2px;
+    
+    // States
+    .m-label-variant(@name, @color, @bg) {
+        &-@{name} {
+            color: @color;
+            background: @bg;
+        }
+    }
+    
+    .m-label-variant(default, @text-base, @brand-default);
+    .m-label-variant(primary, @text-inverse, @brand-primary);
+    .m-label-variant(info, @text-inverse, @brand-info);
+    .m-label-variant(success, @text-inverse, @brand-success);
+    .m-label-variant(warning, @text-inverse, @brand-warning);
+    .m-label-variant(danger, @text-inverse, @brand-danger);
+}

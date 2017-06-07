@@ -1,0 +1,77 @@
+/// <reference path="../core/references.less" />
+
+// Summary
+.summary {
+    padding: @spacing-small 0;
+    
+    // Summary List
+    &-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        a { color: inherit; }
+        
+        // DL
+        dd,
+        dt { padding: 0; }
+        
+        dt { font-weight: @font-weight-light; }
+        
+        dd { 
+            padding-left: @spacing-small;
+            font-weight: @font-weight-normal;
+        }
+        
+        dt + dt,
+        dd + dt { margin-top: 5px; }
+
+        pre {
+            margin: 0;
+            padding: 0;
+            display: block;
+            white-space: pre-line;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            border: none;
+            background: none;
+        }
+
+        .has-error { 
+            color: @brand-danger;
+            font-weight: @font-weight-bold;
+        }
+    }
+
+    // Summary Title
+    &-list &-title,
+    &-list &-header {
+        margin-top: @spacing-small;
+        padding-top: @spacing-small;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+        text-transform: uppercase;
+        border-top: @border-page 1px solid;
+
+        &:first-child {
+            margin-top: @spacing-small;
+            padding-top: 0;
+            border-top: none;
+        }
+    }
+
+    &-list &-header { 
+        padding-bottom: @spacing-small;
+        margin-bottom: @spacing-small;
+        color: @color-primary;
+        border-bottom: @border-page 1px solid;
+    }
+
+    &-list &-title { margin-bottom: @spacing-small; }
+
+    &-list &-header + &-title { 
+        padding-top: 0;
+        border-top: none;
+    }
+}

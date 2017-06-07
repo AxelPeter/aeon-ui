@@ -1,0 +1,446 @@
+@import '@{path-bs}/variables.less';
+
+// Config
+@version:                '1.0.0';
+@path-bs:                '../../../bower_components/bootstrap/less';
+@path-fonts:             '../fonts';
+
+
+
+
+
+// Dimensions
+@navbar-height:          50px;
+@logo-height:            30px;
+@divider-height:         5px;
+@close-height:           24px;
+
+@sidebar-width:          300px;
+
+
+
+
+
+// Palette
+@color-p1:               #264C60;
+@color-p2:               #1F5C97;
+@color-p3:               #C6C4B5;
+@color-p4:               #333;
+@color-u1:               #04B1CD;
+@color-u2:               #E9640A;
+@color-u3:               #814A96;
+@color-u4:               #009E76;
+@color-u5:               #E5BD00;
+@color-u6:               #E74562;
+@color-u7:               #007F88;
+@color-u8:               #E74A3C;
+
+@color-c0:               #434343;
+@color-c1:               #e2001a;
+@color-c2:               #41406a;
+
+// Base Palette
+@color-none:             transparent;
+@color-base:             #e2e3e4;
+@color-link:             #e2001a;
+@color-default:          #c8c8c8;
+@color-black:            #000;
+@color-white:            #fff;
+
+// Component Palette
+@color-page:             #f0f0f0;
+@color-section:          #fff;
+@color-section-alt:      #c8c8c8;
+@color-navbar:           #fff;
+@color-navbar-inverse:   #3c3c3b;
+@color-text:             #000;
+@color-text-inverse:     #fff;
+@color-mark:             yellow;
+@color-icon:             #e2001a;
+@color-icon-alt:         #901422;
+
+// Brand Palette
+@color-active:           #e2001a;
+@color-active-hover:     #af0014;
+@color-active-bg:        #ffe2e5;
+@color-primary:          #e2001a;
+@color-primary-hover:    #af0014;
+@color-primary-bg:       #ffe2e5;//#ffd1d6;
+@color-info:             #8ccbf7;
+@color-info-hover:       #5cb5f4;
+@color-info-bg:          #dbeffd;//#cce8fb;
+@color-success:          #39b54a;
+@color-success-hover:    #2d8e3a;
+@color-success-bg:       #e5f7e7;//#d8f3dc;
+@color-warning:          #fbb800;
+@color-warning-hover:    #c89300;
+@color-warning-bg:       #fff5d9;//#fff0c8;
+@color-danger:           #e2001a;
+@color-danger-hover:     #af0014;
+@color-danger-bg:        #ffe2e5;
+
+
+
+
+
+// Background
+@bg-page:                @color-page;    
+@bg-sidebar:             @color-section;
+@bg-section:             @color-section;
+@bg-link:                @color-link;
+@bg-input:               @color-white;
+@bg-dropdown:            @color-white;
+@bg-carousel:            @color-section-alt;
+@bg-navbar:              @color-navbar;
+@bg-navbar-inverse:      @color-navbar-inverse;
+@bg-active:              @color-active;
+@bg-active-hover:        @color-active-hover;
+@bg-table-cell:          fade(@color-black, 0%);
+@bg-table-cell-even:     fade(@color-black, 2%);
+@bg-table-cell-hover:    fade(@color-black, 2%);
+
+// Text
+@text-base:              @color-text;
+@text-inverse:           @color-text-inverse;
+@text-active:            @color-active;
+@text-link:              @color-link;
+@text-disabled:          @gray-light;
+
+// Border
+@border-page:            @bg-page;
+@border-input:           @color-default;
+@border-active:          @color-active;
+@border-hr:              #000;
+@border-hr-inverse:      #666;
+
+// Radius
+@border-radius-base:     0;
+@border-radius-large:    0;
+@border-radius-small:    0;
+
+
+
+
+
+// Brand Bootstrap
+@brand-base:             @color-base;
+@brand-default:          @color-default;
+@brand-default-hover:    @color-default;
+@brand-primary:          @color-primary;
+@brand-primary-hover:    @color-primary-hover;
+@brand-info:             @color-info;
+@brand-info-hover:       @color-info-hover;
+@brand-success:          @color-success;
+@brand-success-hover:    @color-success-hover;
+@brand-warning:          @color-warning;
+@brand-warning-hover:    @color-warning-hover;
+@brand-danger:           @color-danger;
+@brand-danger-hover:     @color-danger-hover;
+
+// States
+@state-active-text:      @color-active;
+@state-active-bg:        @color-active-bg;
+@state-active-border:    @color-active;
+
+@state-success-text:     @color-success;
+@state-success-bg:       @color-success-bg;
+@state-success-border:   @color-success;
+
+@state-info-text:        @color-info;
+@state-info-bg:          @color-info-bg;
+@state-info-border:      @color-info;
+
+@state-warning-text:     @color-warning;
+@state-warning-bg:       @color-warning-bg;
+@state-warning-border:   @color-warning;
+
+@state-danger-text:      @color-danger;
+@state-danger-bg:        @color-danger-bg;
+@state-danger-border:    @color-danger;
+
+
+
+
+
+// Font family
+@font-family-base:       'Roboto', Arial, sans-serif;
+
+// Font size
+@font-size-base:         14px;
+@font-size-small:        12px;
+@font-size-large:        24px;
+
+@font-size-title:        36px;
+@font-size-logo:         32px;
+
+// Font weight
+@font-weight-normal:     400;
+@font-weight-light:      300;
+@font-weight-bold:       700;
+
+// Line-height
+@line-height-base:       20px;
+@line-height-small:      16px;
+@line-height-large:      30px;
+
+@line-height-title:      42px;
+@line-height-computed:   @line-height-base;
+
+// Shadows
+@shadow-z-depth-0:       none;
+@shadow-z-depth-1:       0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+@shadow-z-depth-2:       0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+@shadow-z-depth-3:       0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+@shadow-z-depth-4:       0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+@shadow-z-depth-5:       0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+@shadow-sidebar:         @shadow-z-depth-1;
+@shadow-alert:           @shadow-z-depth-1;
+@shadow-card:            @shadow-z-depth-1;
+@shadow-card-hover:      @shadow-z-depth-4;
+@shadow-navbar:          @shadow-z-depth-2;
+@shadow-panel:           @shadow-z-depth-1;
+
+@shadow-dropdown:        @shadow-z-depth-3;
+@shadow-modal:           @shadow-z-depth-5;
+@shadow-toast:           @shadow-z-depth-4;
+
+@shadow-text:            1px 1px 1px @color-black;
+@shadow-active:          0 0 8px fade(@color-active, 50%);
+@shadow-primary:         0 0 8px fade(@color-primary, 50%);
+@shadow-danger:          0 0 8px fade(@color-danger, 50%);
+
+// Spacing
+@spacing-base:           25px;
+@spacing-small:          15px;
+@spacing-large:          50px;
+@spacing-mini:           5px;
+
+@spacing-container:      @spacing-base;
+
+
+
+
+
+// Component
+@component-height-xs:    18px;
+@component-height-sm:    24px;
+@component-height-base:  32px;
+@component-height-lg:    48px;
+@component-height-xl:    64px;
+@component-height-xxl:   80px;
+
+
+
+
+
+// Table
+@table-cell-padding:     @spacing-small;
+
+@table-bg:               @color-white;
+@table-bg-accent:        fade(@color-black, 2%);
+@table-bg-hover:         fade(@color-black, 4%);
+@table-bg-active:        @state-active-bg;
+
+@table-border-color:     @bg-page;
+
+
+
+
+
+// List Group
+@list-group-bg:                  @bg-section;
+@list-group-border:              @bg-page;
+@list-group-border-radius:       @border-radius-base;
+
+@list-group-hover-bg:            fade(@color-black, 4%);
+@list-group-active-color:        @component-active-color;
+@list-group-active-bg:           @component-active-bg;
+@list-group-active-border:       @list-group-active-bg;
+@list-group-active-text-color:   lighten(@list-group-active-bg, 40%);
+
+@list-group-disabled-color:      @gray-light;
+@list-group-disabled-bg:         @gray-lighter;
+@list-group-disabled-text-color: @list-group-disabled-color;
+
+@list-group-link-color:          #555;
+@list-group-link-hover-color:    @list-group-link-color;
+@list-group-link-heading-color:  #333;
+
+
+
+
+
+// Dropdowns
+@dropdown-bg:                    @bg-dropdown;
+@dropdown-border:                @table-border-color;
+@dropdown-fallback-border:       @table-border-color;
+@dropdown-divider-bg:            @table-border-color;
+
+@dropdown-link-color:            @text-base;
+@dropdown-link-hover-color:      @text-base;
+@dropdown-link-hover-bg:         @bg-table-cell-hover;
+@dropdown-link-active-color:     @component-active-color;
+@dropdown-link-active-bg:        @component-active-bg;
+@dropdown-link-disabled-color:   @text-disabled;
+
+@dropdown-header-color:          @text-base;
+@dropdown-caret-color:           @text-base;
+
+
+
+
+
+// Alerts
+@alert-padding:               @spacing-small;
+@alert-border-radius:         2px;
+@alert-link-font-weight:      @font-weight-bold;
+
+@alert-success-bg:            @state-success-bg;
+@alert-success-text:          @state-success-text;
+@alert-success-border:        @state-success-bg;
+
+@alert-info-bg:               @state-info-bg;
+@alert-info-text:             @state-info-text;
+@alert-info-border:           @state-info-bg;
+
+@alert-warning-bg:            @state-warning-bg;
+@alert-warning-text:          @state-warning-text;
+@alert-warning-border:        @state-warning-bg;
+
+@alert-danger-bg:             @state-danger-bg;
+@alert-danger-text:           @state-danger-text;
+@alert-danger-border:         @state-danger-bg;
+
+
+
+
+
+// Toastr
+@toast-padding:               @spacing-small;
+@toast-border-radius:         @border-radius-base;
+@toast-link-font-weight:      @font-weight-bold;
+
+@toast-default-bg:            @brand-primary;
+@toast-default-text:          @text-inverse;
+
+@toast-success-bg:            @brand-success;
+@toast-success-text:          @text-inverse;
+
+@toast-info-bg:               @brand-info;
+@toast-info-text:             @text-inverse;
+
+@toast-warning-bg:            @brand-warning;
+@toast-warning-text:          @text-inverse;
+
+@toast-danger-bg:             @brand-danger;
+@toast-danger-text:           @text-inverse;
+
+
+
+
+
+// Panels
+@panel-bg:                    @bg-section;
+@panel-body-padding:          @spacing-small @spacing-base;
+@panel-heading-padding:       @spacing-small @spacing-base;
+@panel-footer-padding:        @panel-heading-padding;
+@panel-border-radius:         @border-radius-base;
+
+@panel-inner-border:          @bg-page;
+@panel-footer-bg:             @bg-table-cell-even;
+
+@panel-default-text:          @text-base;
+@panel-default-border:        @bg-page;
+@panel-default-heading-bg:    @bg-page;
+
+@panel-primary-text:          @text-inverse;
+@panel-primary-border:        @color-primary;
+@panel-primary-heading-bg:    @color-primary;
+
+@panel-success-text:          @text-inverse;
+@panel-success-border:        @color-success;
+@panel-success-heading-bg:    @color-success;
+
+@panel-info-text:             @text-inverse;
+@panel-info-border:           @color-info;
+@panel-info-heading-bg:       @color-info;
+
+@panel-warning-text:          @text-inverse;
+@panel-warning-border:        @color-warning;
+@panel-warning-heading-bg:    @color-warning;
+
+@panel-danger-text:           @text-inverse;
+@panel-danger-border:         @color-danger;
+@panel-danger-heading-bg:     @color-danger;
+
+
+
+
+
+// Form
+@input-height-base:      @component-height-base;
+@input-height-sm:        @component-height-sm;
+@input-height-lg:        @component-height-lg;
+
+@input-height-large:     @input-height-lg;
+@input-height-small:     @input-height-sm;
+
+@check-height-base:      8px;
+
+
+
+
+
+// Buttons
+@btn-height-base:        @component-height-base;
+@btn-height-xs:          @component-height-xs;
+@btn-height-sm:          @component-height-sm;
+@btn-height-lg:          @component-height-lg;
+@btn-height-xl:          @component-height-xl;
+
+
+
+
+
+// Media queries
+@screen-xs:              480px;
+@screen-sm:              768px;
+@screen-md:              992px;
+@screen-lg:              1200px;
+@screen-xl:              1440px;
+
+@screen-xs-min:          @screen-xs;
+@screen-sm-min:          @screen-sm;
+@screen-md-min:          @screen-md;
+@screen-lg-min:          @screen-lg;
+@screen-xl-min:          @screen-xl;
+
+@screen-xs-max:          (@screen-sm-min - 1);
+@screen-sm-max:          (@screen-md-min - 1);
+@screen-md-max:          (@screen-lg-min - 1);
+@screen-lg-max:          (@screen-xl-min - 1);
+
+@screen-mobile-min:      @screen-xs-min;
+@screen-mobile-max:      @screen-xs-max;
+@screen-tablet-min:      @screen-md-min;
+@screen-tablet-max:      @screen-md-max;
+@screen-desktop-min:     @screen-lg-min;
+@screen-desktop-max:     @screen-lg-max;
+
+
+
+
+
+// Duration
+@duration-base:          .25s;
+@duration-large:         .375s;
+@duration-enter:         .225s;
+@duration-leave:         .195s;
+@duration-material:      .3s;
+
+// Animation
+@animation-base:         ease-in-out;
+@animation-enter:        ease-in;
+@animation-leave:        ease-out;
+@animation-material:     cubic-bezier(.25, .8, .25, 1);

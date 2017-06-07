@@ -1,0 +1,38 @@
+/// <reference path="../core/references.less" />
+
+// Card component
+.card {
+    padding: 15px;
+    margin-bottom: 20px;
+    color: @text-base;
+    background: @bg-section;
+    box-shadow: @shadow-card;
+    transition: all @duration-material @animation-material;
+    
+    &:hover { box-shadow: @shadow-card-hover; }
+    
+    & &-title {
+        line-height: @line-height-base;
+        margin: 0;
+        text-align: center;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+    }
+    & &-info {
+        line-height: @line-height-title;
+        margin: 0;
+        text-align: center;
+        font-size: @font-size-title;
+        font-weight: @font-weight-light;
+        color: @brand-info;
+    }
+    & &-stat {
+        height: 90px;
+        
+        .chart,
+        .chart-container {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}

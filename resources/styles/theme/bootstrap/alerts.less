@@ -1,0 +1,19 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/alerts.less';
+
+.alert {
+    margin-top: 0;
+    margin-bottom: @spacing-small;
+    box-shadow: @shadow-alert;
+    
+    &-dismissable,
+    &-dismissible { 
+        position: relative;
+        
+        .close {
+            position: absolute;
+            right: @spacing-mini;
+            top: @spacing-mini;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/progress-bars.less';
+
+// Progress
+.progress {
+    min-width: 200px;
+    height: 8px;
+    margin: 0;
+    margin-bottom: @spacing-small;
+    border-radius: 4px;
+    box-shadow: none;
+    background-color: @brand-base;
+            
+    &-bar { 
+        box-shadow: none; 
+        border-radius: inherit;
+    }
+    
+    &-header {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: table;
+    }
+    
+    &-label {
+        display: table-cell;
+        text-transform: uppercase;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+    }
+    
+    &-desc {
+        display: table-cell;
+        text-align: right;
+        font-size: @font-size-small;
+        font-weight: @font-weight-light;
+    }
+}

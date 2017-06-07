@@ -1,0 +1,153 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/panels.less';
+
+// Panel
+.panel {
+    margin-bottom: @spacing-container;
+    border-radius: 0;
+    box-shadow: @shadow-panel;
+    
+    @media (max-width: @screen-xs-max) { 
+        margin-bottom: 15px;
+        margin-right: -@spacing-small;
+        margin-left: -@spacing-small;
+    }
+    
+    &-heading {
+        line-height: @line-height-base;
+        margin: 0;
+        padding: @spacing-small @spacing-container;
+        text-align: justify;
+        text-transform: uppercase;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+        border-bottom: @bg-page 1px solid;
+        border-radius: 0;
+        
+        @media (max-width: @screen-xs-max) { padding: @spacing-small; }
+    }
+    
+    &-title {
+        line-height: @line-height-large;
+        font-size: @font-size-large;
+        font-weight: @font-weight-light;
+        
+        &:first-child { margin-top: 0; }
+    }
+    
+    &-body {
+        border: none;
+        padding: @spacing-small @spacing-container;
+        border-radius: 0;
+
+        > p,
+        > ul,
+        > ol { 
+            &:first-child {margin-top: @spacing-small; }
+        }
+        
+        @media (max-width: @screen-xs-max) { padding: @spacing-small; }
+    }
+    
+    &-footer {
+        padding: @spacing-small @spacing-container;
+    }
+
+    // Collapsible Panel Component
+    &.collapsible {
+        padding: 0; // 30px 40px 10px 40px;
+        margin-bottom: @spacing-base;
+        position: relative;
+        background: @bg-section;
+
+        @media (max-width: @screen-xs-max) { margin-bottom: @spacing-small; }
+    }
+
+    &.collapsed {
+        .panel-heading { border: none; }
+        .panel-body { display: none; }
+    }
+
+    .collapsible & {
+        &-heading { 
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+        }
+
+        &-index {
+            @background: @bg-navbar-inverse;
+
+            width: 40px;
+            height: 40px;
+            line-height: 24px;
+            padding-right: (40px - 24px);
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            font-size: @font-size-base;
+            font-weight: @font-weight-bold;
+            color: @text-inverse;
+            background: linear-gradient(135deg, @background 0%, @background 50%, transparent 51%, transparent 100%);
+            z-index: 1;
+
+            ~ .panel-heading {
+                padding-top: @spacing-container;
+                padding-bottom: @spacing-container;
+            }
+
+            ~ .panel-heading,
+            ~ .panel-body,
+            ~ .panel-footer {
+                padding-left: @spacing-large;
+                padding-right: @spacing-large;
+
+                @media (max-width: @screen-sm-max) {
+                    padding-left: @spacing-base;
+                    padding-right: @spacing-base;
+                }
+            }
+        }
+
+        &-action {
+            position: absolute;
+            right: @spacing-base;
+            top: @spacing-small;
+            z-index: 1;
+
+            @media (max-width: @screen-sm-max) { right: @spacing-small; }
+
+            .btn {
+                width: @component-height-base;
+                height: @component-height-base;
+                line-height: @component-height-base;
+                padding: 0;
+                display: inline-block;
+                text-align: center;
+                font-size: @font-size-base;
+            }
+
+            ~ .panel-heading { 
+                padding-right: (@spacing-container * 2 + @component-height-base);
+                
+                @media (max-width: @screen-sm-max) { padding-right: (@spacing-small * 2 + @component-height-base); }
+            }
+        }
+        
+        &-row {
+            width: 100%;
+            display: table;
+            
+            @media (max-width: @screen-md-max) { display: block; }
+        }
+        
+        &-col { 
+            display: table-cell;
+            vertical-align: top;
+            
+            @media (max-width: @screen-md-max) { display: block; }
+        }
+    }
+}

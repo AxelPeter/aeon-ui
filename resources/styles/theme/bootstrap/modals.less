@@ -1,0 +1,96 @@
+/// <reference path="../core/references.less" />
+@import '@{path-bs}/modals.less';
+
+// Bootstrap Modal
+.modal {
+    button.close {
+        box-sizing: content-box;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        text-align: center;
+        color: @text-inverse;
+        border: @bg-section @divider-height solid;
+        background: @color-active;
+        transition: background @duration-base @animation-base;
+
+        &:hover, 
+        &:focus, 
+        &:active:hover, 
+        &:active:focus {
+            color: @text-inverse;
+            background: @color-active-hover;
+        }
+
+        .ci { display: block; }
+    }
+    
+    &-dialog { margin: @spacing-large auto; }
+    
+    &.fade &-dialog {
+        opacity: 0;
+        transform: translate(0px, 25%);
+        transition: transform @duration-large @animation-leave, opacity @duration-large @animation-leave;
+    }
+    
+    &.in &-dialog {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    
+    &-backdrop { 
+        opacity: .5;
+        background: @color-black;
+    }
+    
+    &-title {
+        line-height: @line-height-large;
+        font-size: @font-size-large;
+        font-weight: @font-weight-light;
+        
+        &,
+        &:first-child { margin-top: 0; }
+    }
+
+    &-content {
+        border: none;
+        border-radius: 0;
+        box-shadow: @shadow-modal;
+        background: @bg-section;
+    }
+
+    &-header,
+    &-footer { 
+        padding: @spacing-small @spacing-base;
+    
+        @media (max-width: @screen-xs-max) { 
+            padding-left: @spacing-small;
+            padding-right: @spacing-small;
+        }
+    }
+    
+    &-header {
+        padding-right: (@close-height + @spacing-base);
+        line-height: @line-height-base;
+        text-transform: uppercase;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
+
+        @media (max-width: @screen-xs-max) { 
+            padding-right: (@close-height + @spacing-small);
+        }
+    }
+    
+    &-footer { text-align: center; }
+    
+    &-body { 
+        min-height: 30px;
+        padding: @spacing-small @spacing-base;
+    
+        @media (max-width: @screen-xs-max) { 
+            padding-left: @spacing-small;
+            padding-right: @spacing-small;
+        }
+    }
+}
