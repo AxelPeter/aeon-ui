@@ -16,23 +16,36 @@
     "test",
     "tests"
   ],
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-sanitize": "^1.6.6",
+    "angular-touch": "^1.6.6",
+    "angular-toastr": "^2.1.1",
+    "angular-ui-bootstrap": "^2.5.6",
+    "bootstrap": "^3.3.7",
+    "ng-showdown": "^1.1.0",
+    "@uirouter/angularjs": "^1.0.10"
+  },
   "devDependencies": {
-    "bower": "1.7.0",
-    "grunt": "1.0.0",
-    "grunt-cli": "1.1.0",
-    "grunt-concurrent": "2.3.1",
-    "grunt-contrib-clean": "1.1.0",
-    "grunt-contrib-concat": "1.0.1",
-    "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-jshint": "1.1.0",
-    "grunt-contrib-less": "1.4.1",
-    "grunt-contrib-uglify": "2.1.0",
-    "grunt-contrib-watch": "1.0.0",
-    "jit-grunt": "0.10.0",
-    "jshint-stylish": "2.2.1",
-    "time-grunt": "1.4.0"
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-angularjs-annotate": "^0.8.2",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1",
+    "webpack-angular-injector-plugin": "^1.0.0",
+    "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "postinstall": "bower install && grunt"
+    "build": "webpack",
+    "start": "webpack-dev-server --port=5000"
   }
 }
